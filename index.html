@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HBD Yogeshwar</title>
+  <meta name="description" content="A little universe made for my brother Yogeshwar — from Pune to Mumbai, with love." />
+  <meta property="og:title" content="HBD Yogeshwar 🎂" />
+  <meta property="og:description" content="Pune ❤️ Mumbai · Childhood to forever · 11 · 11" />
+  <meta property="og:image" content="assets/photos/18.jpg" />
+  <link rel="icon" href="favicon.ico?v=3" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png?v=3" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Poppins:wght@300;400;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=3" />
+</head>
+<body class="locked">
+
+  <!-- Background layers -->
+  <canvas id="sky"></canvas>
+  <div id="floaters" aria-hidden="true"></div>
+  <canvas id="fx"></canvas>
+
+  <!-- ============ SCREEN 1 : INTRO / ENVELOPE ============ -->
+  <section id="intro" class="screen active">
+    <div class="intro-inner">
+      <p class="eyebrow reveal-up" style="--d:.2s">a little surprise is waiting…</p>
+      <div class="envelope reveal-up" id="envelope" style="--d:.5s" role="button" tabindex="0" aria-label="Open your gift">
+        <div class="env-back"></div>
+        <div class="env-letter">
+          <span class="script">For my brother</span>
+          <strong>Yogeshwar</strong>
+          <small>from Raviraj ❤️</small>
+        </div>
+        <div class="env-front"></div>
+        <div class="env-flap"></div>
+        <div class="env-seal">11<br/>11</div>
+      </div>
+      <p class="tap-hint reveal-up" style="--d:.9s">Tap the envelope to open 💌</p>
+      <p class="sound-hint reveal-up" style="--d:1.1s">🔊 Turn your sound on</p>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 2 : SONG PICKER ============ -->
+  <section id="picker" class="screen">
+    <div class="picker-inner">
+      <p class="eyebrow">Step 1 of your birthday</p>
+      <h2 class="picker-title">Choose today's <span class="grad">soundtrack</span> 🎧</h2>
+      <p class="picker-sub">Pick one. It'll keep playing while you look around.</p>
+      <div class="vinyls">
+        <button class="vinyl-card" data-song="assets/songs/baar-baar-din.mp3" data-name="Baar Baar Din Yeh Aaye">
+          <div class="vinyl"><div class="label" style="--c1:#ff4d8d;--c2:#ffb347">🎂</div></div>
+          <h3>Baar Baar Din Yeh Aaye</h3>
+          <p>The classic birthday anthem</p>
+        </button>
+        <button class="vinyl-card" data-song="assets/songs/no-one-yaari.mp3" data-name="#1 Yaari — Friendship Mashup">
+          <div class="vinyl"><div class="label" style="--c1:#6a5cff;--c2:#00d4ff">🤝</div></div>
+          <h3>#NoOneYaari</h3>
+          <p>For the yaari since childhood</p>
+        </button>
+        <button class="vinyl-card" data-song="assets/songs/happy-birthday.mp3" data-name="Happy Birthday to You Ji">
+          <div class="vinyl"><div class="label" style="--c1:#ffcf40;--c2:#ff6a3d">🎉</div></div>
+          <h3>Happy Birthday</h3>
+          <p>Pure party mode</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MAIN EXPERIENCE ============ -->
+  <main id="main" class="screen">
+
+    <!-- HERO -->
+    <header class="hero" id="hero">
+      <div class="balloons" id="balloons" aria-hidden="true"></div>
+      <p class="eyebrow">11 · 11 · it's your day</p>
+      <h1 class="hero-title">
+        <span class="line1" data-split>Happy Birthday</span>
+        <span class="line2 script" data-split>Yogeshwar</span>
+      </h1>
+      <p class="hero-hindi">जन्मदिन की ढेर सारी शुभकामनाएँ, मेरे भाई! 🎉</p>
+      <div class="hero-badges">
+        <span>🎂 Birthday</span><span>❤️ Pune × Mumbai</span><span>🤝 Brotherhood</span>
+      </div>
+      <div class="days-counter" id="friendCounter">
+        <div><b data-count="0" id="cYears">0</b><small>years of yaari</small></div>
+        <div><b data-count="0" id="cDays">0</b><small>days of memories</small></div>
+        <div><b>∞</b><small>more to go</small></div>
+      </div>
+      <a href="#cities" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+    </header>
+
+    <!-- PUNE ❤ MUMBAI -->
+    <section class="cities" id="cities">
+      <h2 class="section-title reveal">Pune <span class="heart-beat">❤️</span> Mumbai</h2>
+      <p class="section-sub reveal">Different cities now. Same story.</p>
+      <div class="route-wrap reveal">
+        <svg viewBox="0 0 800 320" class="route" id="routeSvg" aria-label="Route from Pune to Mumbai">
+          <defs>
+            <linearGradient id="routeGrad" x1="0" x2="1">
+              <stop offset="0" stop-color="#ffb347"/>
+              <stop offset=".5" stop-color="#ff4d8d"/>
+              <stop offset="1" stop-color="#00d4ff"/>
+            </linearGradient>
+            <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <!-- Mumbai skyline (right) -->
+          <g class="skyline mumbai" transform="translate(560,90)">
+            <rect x="0" y="60" width="22" height="80" /><rect x="26" y="30" width="18" height="110" />
+            <rect x="48" y="70" width="26" height="70" /><path d="M80 140 V60 Q100 20 120 60 V140 Z" />
+            <rect x="124" y="40" width="16" height="100" /><rect x="144" y="80" width="30" height="60" />
+            <rect x="178" y="50" width="20" height="90" />
+          </g>
+          <!-- Pune: Shaniwar Wada-ish fort (left) -->
+          <g class="skyline pune" transform="translate(30,120)">
+            <rect x="0" y="40" width="200" height="70" />
+            <rect x="10" y="10" width="34" height="100" /><rect x="156" y="10" width="34" height="100" />
+            <path d="M80 110 V60 Q100 30 120 60 V110 Z" class="gate" />
+            <rect x="10" y="0" width="8" height="12"/><rect x="26" y="0" width="8" height="12"/>
+            <rect x="156" y="0" width="8" height="12"/><rect x="172" y="0" width="8" height="12"/>
+          </g>
+          <path id="routePath" d="M130 150 C 260 20, 520 280, 670 140" fill="none" stroke="url(#routeGrad)" stroke-width="4" stroke-linecap="round" stroke-dasharray="8 10" class="route-line" filter="url(#glow)"/>
+          <circle cx="130" cy="150" r="9" class="node"/>
+          <circle cx="670" cy="140" r="9" class="node"/>
+          <text x="130" y="275" class="city-label" text-anchor="middle">PUNE</text>
+          <text x="130" y="298" class="city-sub" text-anchor="middle">Raviraj</text>
+          <text x="670" y="275" class="city-label" text-anchor="middle">MUMBAI</text>
+          <text x="670" y="298" class="city-sub" text-anchor="middle">Yogeshwar</text>
+          <g id="traveler"><text font-size="30" text-anchor="middle" dy="10">💖</text></g>
+        </svg>
+        <div class="km-badge"><b><span id="kmCount">150</span> km</b> apart on the map<br/><b class="grad">0 km</b> apart in the heart</div>
+      </div>
+      <div class="city-cards">
+        <div class="city-card reveal"><span>🏰</span><h4>Pune</h4><p>Where our story began: childhood days, silly fights and endless masti.</p></div>
+        <div class="city-card reveal"><span>🛣️</span><h4>The Expressway</h4><p>3 hours by road. One call, and it feels like you're right next to me.</p></div>
+        <div class="city-card reveal"><span>🌊</span><h4>Mumbai</h4><p>Where you're chasing your dreams now. Marine Drive misses me already 😄</p></div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="timeline-sec" id="timeline">
+      <h2 class="section-title reveal">Our Journey <span class="grad">2017 → Forever</span></h2>
+      <p class="section-sub reveal">From childhood to brothers for life</p>
+      <div class="timeline" id="timelineList"></div>
+    </section>
+
+    <!-- 3D CAROUSEL -->
+    <section class="carousel-sec" id="carousel">
+      <h2 class="section-title reveal">The Memory <span class="grad">Wheel</span></h2>
+      <p class="section-sub reveal">Drag or swipe to spin · tap a photo to open it</p>
+      <div class="stage" id="stage">
+        <div class="ring" id="ring"></div>
+      </div>
+    </section>
+
+    <!-- LETTER -->
+    <section class="letter-sec" id="letter">
+      <h2 class="section-title reveal">A Letter For <span class="grad">You</span></h2>
+      <p class="section-sub reveal">Move your mouse or tilt your phone ✨</p>
+      <div class="letter-scene reveal" id="letterScene">
+        <div class="letter" id="letterCard">
+          <div class="letter-shadow"></div>
+          <div class="letter-photo">
+            <div class="photo-frame">
+              <img src="assets/photos/11.jpg" alt="Raviraj and Yogeshwar" loading="lazy"/>
+            </div>
+            <span class="tape tp1"></span><span class="tape tp2"></span>
+            <div class="photo-badge">Bhai ❤️ Since Childhood</div>
+          </div>
+          <div class="letter-body">
+            <div class="letter-hearts" id="letterHearts" aria-hidden="true"></div>
+            <div class="letter-head">
+              <span class="stamp">📮<small>PUNE → MUMBAI</small></span>
+              <span class="date">11 · 11</span>
+            </div>
+            <div class="typed" id="typed"></div>
+            <p class="sign script" id="sign">— Your brother, Raviraj</p>
+            <div class="wax-seal" id="waxSeal"><span>R<i>❤</i>Y</span></div>
+          </div>
+          <div class="glare" id="glare"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REASONS / FLIP CARDS -->
+    <section class="reasons-sec" id="reasons">
+      <h2 class="section-title reveal">Why You're My <span class="grad">Brother</span></h2>
+      <p class="section-sub reveal">Tap each card 👇</p>
+      <div class="flip-grid" id="flipGrid"></div>
+    </section>
+
+    <!-- WISH JAR -->
+    <section class="wishes-sec" id="wishes">
+      <h2 class="section-title reveal">Birthday <span class="grad">Wishes</span> For You</h2>
+      <div class="wish-board" id="wishBoard"></div>
+    </section>
+
+    <!-- CAKE -->
+    <section class="cake-sec" id="cake">
+      <h2 class="section-title reveal">Make a <span class="grad">Wish</span> 🕯️</h2>
+      <p class="section-sub reveal" id="cakeHint">Close your eyes, make a wish… then tap the candles to blow them out!</p>
+      <div class="cake reveal" id="cakeEl">
+        <div class="candles" id="candles"></div>
+        <div class="tier t3"><span class="drip"></span></div>
+        <div class="tier t2"><span class="drip"></span><em>Yogo</em></div>
+        <div class="tier t1"><span class="drip"></span><em>11 · 11</em></div>
+        <div class="plate"></div>
+      </div>
+    </section>
+
+    <!-- FINALE -->
+    <section class="finale" id="finale">
+      <div class="finale-inner">
+        <h2 class="finale-title script">Happy Birthday, Bhai!</h2>
+        <p class="finale-text">Pune to Mumbai, childhood to forever.<br/>Whatever happens, I've always got your back. 🤝</p>
+        <div class="finale-photo"><img src="assets/photos/18.jpg" alt="Gateway of India" loading="lazy"/></div>
+        <button class="btn" id="replayFx">🎆 More Fireworks</button>
+        <p class="footer-note">Made with ❤️ by Raviraj · Pune → Mumbai · 11.11</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Persistent music player -->
+  <div class="player" id="player" hidden>
+    <div class="disc" id="disc">🎵</div>
+    <div class="p-info"><small>Now playing</small><span id="songName">—</span></div>
+    <button id="playBtn" aria-label="Play or pause">❚❚</button>
+    <button id="changeBtn" aria-label="Change song" title="Change song">⇄</button>
+    <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  </div>
+
+  <!-- Change-song popup -->
+  <div class="song-menu" id="songMenu" hidden>
+    <button data-song="assets/songs/baar-baar-din.mp3" data-name="Baar Baar Din Yeh Aaye">🎂 Baar Baar Din Yeh Aaye</button>
+    <button data-song="assets/songs/no-one-yaari.mp3" data-name="#1 Yaari — Friendship Mashup">🤝 #NoOneYaari</button>
+    <button data-song="assets/songs/happy-birthday.mp3" data-name="Happy Birthday to You Ji">🎉 Happy Birthday</button>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-nav prev" id="lbPrev" aria-label="Previous">‹</button>
+    <figure><img id="lbImg" alt="" /><figcaption id="lbCap"></figcaption></figure>
+    <button class="lb-nav next" id="lbNext" aria-label="Next">›</button>
+  </div>
+
+  <audio id="audio" loop preload="none"></audio>
+  <script src="script.js?v=3"></script>
+</body>
+</html>
